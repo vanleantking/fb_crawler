@@ -1,0 +1,8 @@
+libs/*
+source_fb/*
+Shared/constant.py
+.idea/*
+*.log
+*.pyc
+**/profile/*
+/shared/constant.py
