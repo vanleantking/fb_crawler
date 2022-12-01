@@ -1,0 +1,4 @@
+start driver firefox:
+# from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
+# profile = FirefoxProfile(profile_directory='/home/vanle/.mozilla/firefox/0ee3w7zl.default-1476830417772-1531651501771')
+# driver = webdriver.Firefox(executable_path='./libs/geckodriver', firefox_profile=profile)

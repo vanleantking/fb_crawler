@@ -1,0 +1,47 @@
+tổng quan: https://www.facebook.com/nguyhiem2010/about?section=overview&lst=100003777646251%3A1017594233%3A1595342664
+            => /about?section=overview
+            3 section:
+            - (//div[contains(@data-overviewsection,'education')])
+            - (//div[contains(@data-overviewsection,'places')])
+            - (//div[contains(@data-overviewsection,'contact_basic')])
+
+
+công việc - học vấn: https://www.facebook.com/nguyhiem2010/about?section=education&lst=100003777646251%3A1017594233%3A1595342664
+            => /about?section=education
+            2 section: #pagelet_eduwork .fbProfileEditExperiences (list class)
+
+
+nơi từng sống: https://www.facebook.com/nguyhiem2010/about?section=living&lst=100003777646251%3A1017594233%3A1595342664
+            => /about?section=living
+            1 section #pagelet_hometown .fbProfileEditExperiences (list class)
+
+
+thông tin liên hệ cơ bản: https://www.facebook.com/nguyhiem2010/about?section=contact-info&lst=100003777646251%3A1017594233%3A1595342664
+            => /about?section=contact-info
+            2 section:
+            - #pagelet_contact .fbProfileEditExperiences (thông tin liên hệ)
+            - #pagelet_basic .fbProfileEditExperiences (thông tin cơ bản)
+
+
+gia đình và các mối liên hệ: https://www.facebook.com/nguyhiem2010/about?section=relationship&lst=100003777646251%3A1017594233%3A1595342664
+            => /about?section=relationship
+            2 section:
+            - #pagelet_relationships .fbProfileEditExperiences (list class)
+
+
+chi tiết: https://www.facebook.com/nguyhiem2010/about?sec   tion=bio&lst=100003777646251%3A1017594233%3A1595342664
+            => /about?section=bio
+sự kiện trong đời: https://www.facebook.com/nguyhiem2010/about?section=year-overviews&lst=100003777646251%3A1017594233%3A1595342664
+            => /about?section=year-overviews
+
+&lst=100003777646251%3A1017594233%3A1595342664 == &lst=[my_user_id]:[user_id:nguyhiem2010(1017594233)]:[current_timestamp]
+
+user_id(van.le.k3c1) :100001637778236
+user_id(van le): 100003777646251
+
+link thành viên:
+    - thành viên có điểm chung: https://www.facebook.com/groups/296246730438915/members_with_things_in_common/
+    - thành viên mới: https://www.facebook.com/groups/134754313279963/members/
+    - bạn bè trong group: https://www.facebook.com/groups/134754313279963/friends/
+    - thành viên có location chung: https://www.facebook.com/groups/134754313279963/local_members/
+    - thành viên nhóm là fan page: https://www.facebook.com/groups/134754313279963/page_members/
