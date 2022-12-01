@@ -1,6 +1,8 @@
 from selenium import webdriver
 from time import sleep
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+
 from selenium.webdriver.chrome.options import Options
 from shared import constant as shared_constant
 
@@ -13,12 +15,13 @@ if __name__ == '__main__':
     # assert "Python" in driver.title
     username = shared_constant.UserNameFB
     password = shared_constant.PasswordFB
-    elem = driver.find_element_by_id("email")
+    sleep(5)
+    elem = driver.find_element(By.ID, "email")
     elem.clear()
     elem.send_keys(username)
     sleep(5)
 
-    passElem = driver.find_element_by_id("pass")
+    passElem = driver.find_element(By.ID, "pass")
     passElem.clear()
     passElem.send_keys(password)
     passElem.send_keys(Keys.RETURN)

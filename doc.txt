@@ -1,0 +1,13 @@
+https://stackoverflow.com/questions/57689198/how-to-scrape-data-from-webpage-which-uses-react-js-with-selenium-in-python
+https://github.com/rugantio/fbcrawl/blob/master/comments.png
+https://github.com/apurvmishra99/facebook-scraper-selenium
+https://www.quora.com/Is-it-possible-to-crawl-Facebook-data-using-Python-for-research-purposes-If-so-how
+https://www.quora.com/How-do-I-crawl-Facebook-public-data
+https://pypi.org/project/facebook-scraper/
+https://dev.to/iankalvin/scraping-facebook-groups-using-python-avoid-getting-blocked-with-proxycrawl-456a
+https://python.gotrained.com/scraping-facebook-posts-comments/
+https://medium.com/@ali.raza.nisar/crawling-your-facebook-friends-data-31a2d8fc0c6d
+https://thinkdiff.net/how-to-scrap-data-from-javascript-based-website-using-python-selenium-and-headless-web-driver-531c7fe0c01f
+https://towardsdatascience.com/web-scraping-with-selenium-d7b6d8d3265a
+https://github.com/wkeeling/selenium-wire
+https://medium.com/@Ratnaparkhi/web-crawling-of-dynamic-and-authenticated-pages-af9e2a4b2f94

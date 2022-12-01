@@ -188,7 +188,7 @@ class GroupCrawler:
 
 if __name__ == '__main__':
 
-    driver = get_driver(profile_path='profile/default', execution_path='../libs/chromedriver')
+    driver = get_driver(profile_path='/home/vanle/.config/google-chrome/Profile 4', execution_path='../libs/chromedriver')
     group_crawl = GroupCrawler(driver)
 
     #
