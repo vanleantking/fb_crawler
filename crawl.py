@@ -3,6 +3,7 @@ import time
 import re
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
 from mongo_driver import mongo_db as con
 from shared import constant as shareContants
 
@@ -97,14 +98,14 @@ def crawl_group_info(browser_driver):
     group_id = ''
     regexp_id = re.compile(r'id=(\d+)')
 
-    group_link = 'https://www.facebook.com/groups/hoitimcachkiemtien/about/'
+    group_link = 'https://www.facebook.com/groups/yeunhadep/about/'
 
     driver.get(group_link)
     time.sleep(10)
 
     # description
     try:
-        description_elm = browser_driver.find_element_by_xpath("(//div[@role='heading'])[4]")
+        description_elm = browser_driver.find_element(By.XPATH, "(//div[contains(@class,'x9f619 x1n2onr6 x1ja2u2z x78zum5 xdt5ytf x2lah0s x193iq5w x1gslohp x12nagc xzboxd6 x14l7nz5')])[2]")
         print(description_elm.text)
         description = description_elm.text
     except NoSuchElementException:
@@ -113,14 +114,14 @@ def crawl_group_info(browser_driver):
 
     # group_name
     try:
-        group_name_elm = browser_driver.find_element_by_xpath("//a[@href='/groups/hoitimcachkiemtien/?ref=group_header']")
+        group_name_elm = browser_driver.find_element(By.XPATH,"(//a[@href='https://www.facebook.com/groups/yeunhadep/'])[2]")
         group_name = group_name_elm.text
     except NoSuchElementException:
         print('no element group name found')
 
     # group_id
     try:
-        priceValue = browser_driver.find_element_by_xpath("//meta[@property='al:ios:url']")
+        priceValue = browser_driver.find_element(By.XPATH, "//meta[@property='al:ios:url']")
         print('content id group, ', priceValue.get_attribute('content'))
         content = priceValue.get_attribute("content")
         content_groups = regexp_id.search(content)
@@ -130,13 +131,13 @@ def crawl_group_info(browser_driver):
     print((group_name, description, group_id))
 
     # crawl total_member:
-    browser_driver.get('https://www.facebook.com/groups/hoitimcachkiemtien/members/')
+    browser_driver.get('https://www.facebook.com/groups/yeunhadep/members/')
     time.sleep(10)
 
     try:
-        total_elm = browser_driver.find_element_by_xpath("(//div[@role='heading'])[2]")
-        print('total elm, ', total_elm.find_element_by_tag_name('span'))
-        total_member = total_elm.find_element_by_tag_name('span').text
+        total_elm = browser_driver.find_element(By.XPATH,"(//span[contains(@class,'x1lliihq x6ikm8r x10wlt62 x1n2onr6')])[6]")
+        print('total elm, ', total_elm.find_element(By.NAME,'span'))
+        total_member = total_elm.find_element(By.NAME, 'span').text
     except NoSuchElementException:
         print('no element group description found')
         pass
