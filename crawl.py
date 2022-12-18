@@ -106,9 +106,7 @@ def crawl_group_info(browser_driver):
     # description
     try:
         description_elm = browser_driver.find_element(By.XPATH,
-                                                      "(//div[contains(@class,'x9f619 x1n2onr6 x1ja2u2z x78zum5 \
-                                                      xdt5ytf x2lah0s x193iq5w x1gslohp x12nagc xzboxd6 \
-                                                      x14l7nz5')])[2]")
+                                                      "(//div[contains(@class,'x9f619 x1n2onr6 x1ja2u2z x78zum5 xdt5ytf x2lah0s x193iq5w x1gslohp x12nagc xzboxd6 x14l7nz5')])[2]")
         print(description_elm.text)
         description = description_elm.text
     except NoSuchElementException:
@@ -117,8 +115,7 @@ def crawl_group_info(browser_driver):
 
     # group_name
     try:
-        group_name_elm = browser_driver.find_element(By.XPATH,
-                                                     "(//a[@href='https://www.facebook.com/groups/yeunhadep/'])[2]")
+        group_name_elm = browser_driver.find_element(By.XPATH, "(//a[@href='https://www.facebook.com/groups/yeunhadep/'])[2]")
         group_name = group_name_elm.text
     except NoSuchElementException:
         print('no element group name found')
@@ -139,8 +136,7 @@ def crawl_group_info(browser_driver):
     time.sleep(10)
 
     try:
-        total_elm = browser_driver.find_element(By.XPATH,
-                                                "(//span[contains(@class,'x1lliihq x6ikm8r x10wlt62 x1n2onr6')])[6]")
+        total_elm = browser_driver.find_element(By.XPATH, "(//span[contains(@class,'x1lliihq x6ikm8r x10wlt62 x1n2onr6')])[6]")
         print('total elm, ', total_elm.find_element(By.NAME, 'span'))
         total_member = total_elm.find_element(By.NAME, 'span').text
     except NoSuchElementException:

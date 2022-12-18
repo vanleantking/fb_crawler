@@ -107,3 +107,7 @@ if (feed_content.length > 0) {
 var clss_feed_content = single_post.getElementsByClassName('x1iorvi4 x1pi30zi x1l90r2v x1swvt13');
 console.log('feed content by class name, ', clss_feed_content.length);
 var post_info = clss_feed_content.getElementByClassName('x1yztbdb x1n2onr6 xh8yej3 x1ja2u2z');
+
+
+## Ref:
+1. https://stackoverflow.com/questions/35494914/how-to-use-javascript-with-selenium-python

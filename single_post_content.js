@@ -20,25 +20,23 @@ var inside_post_info = single_post.getElementsByClassName('x9f619 x1n2onr6 x1ja2
 
 // get facebook name && facebook post time
 var fb_info = inside_post_info.getElementsByClassName('x1cy8zhl x78zum5 x1q0g3np xod5an3 x1pi30zi x1swvt13 xz9dl7a')[0];
-var fb_info_page = fb_info.getElementsByClassName('xu06os2 x1ok221b')[0];
-var fb_info_name, fb_info_post_time = undefined;
-if (fb_info_page.length > 0) {
-    fb_info_name = fb_info_page[0];
-    fb_info_post_time = fb_info_page[0];
-}
+var fb_info_name = fb_info.getElementsByClassName('xu06os2 x1ok221b')[0];
+var fb_info_post_time = fb_info.getElementsByClassName('xu06os2 x1ok221b')[1];
 
-console.log(fb_info_post_time, fb_info_name);
+console.log('fb_info_post_time, fb_info_post_time.textContent, ', fb_info_post_time, fb_info_post_time.textContent);
+console.log('fb_info_name, fb_info_name.textContent, ', fb_info_name, fb_info_name.textContent);
 
 // fb_contents
 // fb_post_content
 var fb_post_content = inside_post_info.getElementsByClassName('x1iorvi4 x1pi30zi x1l90r2v x1swvt13')[0];
+console.log('fb_post_content, ', fb_post_content);
 
 // fb_post_images <= this elements fb change each load pages => find new way to get this element
-var fb_post_image = inside_post_info.querySelector('#jsc_c_2c');
-if (fb_post_image.length > 0) {
-    ahref = fb_post_image[0].getElementsByClassName('img')[0];
-    console.log('images, ', ahref);
-}
+// var fb_post_image = inside_post_info.querySelector('#jsc_c_2c');
+// if (fb_post_image.length > 0) {
+//     ahref = fb_post_image[0].getElementsByClassName('img')[0];
+//     console.log('images, ', ahref);
+// }
 
 // get fb comments
 var fb_post_comments = inside_post_info.getElementsByClassName('x168nmei x13lgxp2 x30kzoy x9jhf4c x6ikm8r x10wlt62')[0];
