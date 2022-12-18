@@ -5,3 +5,4 @@ Shared/constant.py
 *.pyc
 **/profile/*
 /shared/constant.py
+/.DS_Store
