@@ -179,28 +179,29 @@ def crawl_fb_page_feed(browser_driver):
 
     # get fb comments summary
     fb_post_comments = inside_post_info.find_element(By.XPATH,
-                                                     "(//div[contains(@class, 'x168nmei x13lgxp2 x30kzoy x9jhf4c x6ikm8r x10wlt62')])")
+                                                     "//div[contains(@class, 'x168nmei x13lgxp2 x30kzoy x9jhf4c x6ikm8r x10wlt62')]")
     reactions_comments_summaries = fb_post_comments.find_element(By.XPATH,
-                                                                 "(//div[contains(@class, 'x6s0dn4 xi81zsa x78zum5 x6prxxf x13a6bvl xvq8zen xdj266r xktsk01 xat24cr x1d52u69 x889kno x4uap5 x1a8lsjc xkhd6sd xdppsyt')])")
+                                                                 "//div[contains(@class, 'x6s0dn4 xi81zsa x78zum5 x6prxxf x13a6bvl xvq8zen xdj266r xktsk01 xat24cr x1d52u69 x889kno x4uap5 x1a8lsjc xkhd6sd xdppsyt')]")
     total_reactions = reactions_comments_summaries.find_element(By.XPATH,
-                                                                "(//div[contains(@class, 'x6s0dn4 x78zum5 x1iyjqo2 x6ikm8r x10wlt62')])")
+                                                                "//div[contains(@class, 'x6s0dn4 x78zum5 x1iyjqo2 x6ikm8r x10wlt62')]")
     print('total_reactions, ', total_reactions, total_reactions.get_attribute("innerText"))
     comment_summaries = reactions_comments_summaries.find_element(By.XPATH,
-                                                                  "(//div[contains(@class, 'x6s0dn4 x78zum5 x2lah0s x17rw0jw')])")
+                                                                  "//div[contains(@class, 'x6s0dn4 x78zum5 x2lah0s x17rw0jw')]")
     print('comment_summaries, ', comment_summaries, comment_summaries.get_attribute("innerText"))
 
     # get fb comment content only
     fb_comments_only = fb_post_comments.find_element(By.XPATH,
-                                                     "(//div[contains(@class, 'x1jx94hy x12nagc')])")
+                                                     "//div[contains(@class, 'x1jx94hy x12nagc')]")
     print('fb_comments_only, ', fb_comments_only, fb_comments_only.get_attribute("innerText"))
     try:
         click_elem = fb_comments_only.find_element(By.XPATH,
                                                    "(//div[contains(@class, 'x78zum5 x13a6bvl xexx8yu x1pi30zi x18d9i69 x1swvt13 x1n2onr6')])[1]")
         span_click = click_elem.find_element(By.XPATH,
-                                             "(//span[contains(@class, 'x193iq5w xeuugli x13faqbe x1vvkbs xlh3980 xvmahel x1n0sxbx x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x4zkp8e x3x7a5m x6prxxf xvq8zen x1s688f xi81zsa')])")
+                                             "//span[@class='x193iq5w xeuugli x13faqbe x1vvkbs xlh3980 xvmahel x1n0sxbx x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x4zkp8e x3x7a5m x6prxxf xvq8zen x1s688f xi81zsa'][contains(.,'bình luận')]")
         print('span_click, ', span_click)
         print("Element is visible? " + str(span_click.is_displayed()))
         print(ActionChains(browser_driver).move_to_element(click_elem))
+        print(browser_driver.execute_script("console.log(arguments[0]);", span_click))
         print(browser_driver.execute_script("arguments[0].click();", span_click))
         time.sleep(30)
         # print(span_click.click())
@@ -208,7 +209,8 @@ def crawl_fb_page_feed(browser_driver):
         # print(span_click.click())
     except NoSuchElementException as error:
         print('not clickable')
-    time.sleep(30)
+    print('fb_comments_only, ', fb_comments_only, fb_comments_only.get_attribute("innerText"))
+    time.sleep(300)
 
 
 if __name__ == '__main__':
