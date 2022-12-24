@@ -5,6 +5,10 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+
 from mongo_driver import mongo_db as con
 from shared import constant as shareContants
 
@@ -193,22 +197,62 @@ def crawl_fb_page_feed(browser_driver):
     fb_comments_only = fb_post_comments.find_element(By.XPATH,
                                                      "//div[contains(@class, 'x1jx94hy x12nagc')]")
     print('fb_comments_only, ', fb_comments_only, fb_comments_only.get_attribute("innerText"))
-    try:
-        click_elem = fb_comments_only.find_element(By.XPATH,
-                                                   "(//div[contains(@class, 'x78zum5 x13a6bvl xexx8yu x1pi30zi x18d9i69 x1swvt13 x1n2onr6')])[1]")
-        span_click = click_elem.find_element(By.XPATH,
-                                             "//span[@class='x193iq5w xeuugli x13faqbe x1vvkbs xlh3980 xvmahel x1n0sxbx x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x4zkp8e x3x7a5m x6prxxf xvq8zen x1s688f xi81zsa'][contains(.,'bình luận')]")
+
+    # this call click for get the menu option on comments, include [the mnost relevant comments, the newest comments, all comments]
+    try :
+        click_option_view_cmt = fb_comments_only.find_element(By.XPATH,
+                                                         "//div[contains(@class, 'x78zum5 x13a6bvl xexx8yu x1pi30zi x18d9i69 x1swvt13 x1n2onr6')]")
+        span_click_option_view_cmt = click_option_view_cmt.find_element(By.XPATH,
+                                                         "//span[contains(@class, 'x193iq5w xeuugli x13faqbe x1vvkbs xlh3980 xvmahel x1n0sxbx x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x4zkp8e x3x7a5m x6prxxf xvq8zen x1s688f xi81zsa')][contains(.,'Phù hợp nhất')]");
+        print('click_option_view_cmt, ', click_option_view_cmt)
+        print('span_click_option_view_cmt, ', span_click_option_view_cmt, span_click_option_view_cmt.is_displayed(), span_click_option_view_cmt.is_enabled())
+        print(ActionChains(browser_driver).move_to_element(span_click_option_view_cmt))
+        print(browser_driver.execute_script("console.log(arguments[0]);", span_click_option_view_cmt))
+        print(browser_driver.execute_script("arguments[0].click();", span_click_option_view_cmt))
+        time.sleep(20)
+
+        menu_opt_choice_all = browser_driver.find_element(By.XPATH,
+            "//span[contains(@class, 'x193iq5w xeuugli x13faqbe x1vvkbs xlh3980 xvmahel x1n0sxbx x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x4zkp8e x3x7a5m x6prxxf xvq8zen xk50ysn xzsf02u x1yc453h')][contains(.,'Tất cả bình luận')]")
+        print('menu_opt_choice_all, ', menu_opt_choice_all)
+        print(ActionChains(browser_driver).move_to_element(menu_opt_choice_all))
+        print(browser_driver.execute_script("console.log(arguments[0]);", menu_opt_choice_all))
+        print(browser_driver.execute_script("arguments[0].click();", menu_opt_choice_all))
+        time.sleep(10)
+        browser_driver.implicitly_wait(10)
+        span_click = WebDriverWait(driver, 15).until(
+            lambda wd: wd.find_element(By.XPATH,
+                                                        "//span[contains(@class, 'x193iq5w xeuugli x13faqbe x1vvkbs xlh3980 xvmahel x1n0sxbx x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x4zkp8e x3x7a5m x6prxxf xvq8zen x1s688f xi81zsa')][contains(.,'bình luận')]"))
+
+        # span_click = click_option_view_cmt.find_element(By.XPATH,
+        #                                                 "//span[contains(@class, 'x193iq5w xeuugli x13faqbe x1vvkbs xlh3980 xvmahel x1n0sxbx x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x4zkp8e x3x7a5m x6prxxf xvq8zen x1s688f xi81zsa')][contains(.,'bình luận')]")
         print('span_click, ', span_click)
         print("Element is visible? " + str(span_click.is_displayed()))
-        print(ActionChains(browser_driver).move_to_element(click_elem))
+        print(ActionChains(browser_driver).move_to_element(span_click))
         print(browser_driver.execute_script("console.log(arguments[0]);", span_click))
         print(browser_driver.execute_script("arguments[0].click();", span_click))
-        time.sleep(30)
+
+        browser_driver.implicitly_wait(15)
+        #  click on the view all comments agains
+        menu_opt_choice_all2 = browser_driver.find_element(By.XPATH,
+                                                          "//span[@class='x193iq5w xeuugli x13faqbe x1vvkbs xlh3980 xvmahel x1n0sxbx x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x4zkp8e x3x7a5m x6prxxf xvq8zen xk50ysn xzsf02u x1yc453h'][contains(.,'Tất cả bình luận')]")
+        print('menu_opt_choice_all, ', menu_opt_choice_all2)
+        print(ActionChains(browser_driver).move_to_element(menu_opt_choice_all2))
+        print(browser_driver.execute_script("console.log(arguments[0]);", menu_opt_choice_all2))
+        print(browser_driver.execute_script("arguments[0].click();", menu_opt_choice_all2))
+
+        time.sleep(20)
+
         # print(span_click.click())
 
         # print(span_click.click())
-    except NoSuchElementException as error:
-        print('not clickable')
+    except Exception as exp:
+        print('ooop, something not as expected, ', exp)
+
+    time.sleep(10)
+    browser_driver.implicitly_wait(15)
+    WebDriverWait(browser_driver, 20).until(EC.presence_of_element_located((By.XPATH, "//div[contains(@class, 'x1jx94hy x12nagc')]")))
+    # fb_comments_only = fb_post_comments.find_element(By.XPATH,
+    #                                                  "//div[contains(@class, 'x1jx94hy x12nagc')]")
     print('fb_comments_only, ', fb_comments_only, fb_comments_only.get_attribute("innerText"))
     time.sleep(300)
 
