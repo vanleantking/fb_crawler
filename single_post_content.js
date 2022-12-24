@@ -50,6 +50,27 @@ console.log('total_reactions, ', comment_summaries);
 var post_comments_only = fb_post_comments.getElementsByClassName('x1jx94hy x12nagc')[0];
 console.log('post_comments_only, ', post_comments_only);
 
+
+// click to choice comment [the most relevant comment (comment from friends, the most action comments on fb), newest comment on fb, all of comment]
+var click_option_view_cmt = post_comments_only.getElementsByClassName('x78zum5 x13a6bvl xexx8yu x1pi30zi x18d9i69 x1swvt13 x1n2onr6')[0];
+var span_click_option_view_cmt = click_option_view_cmt.getElementsByClassName('x193iq5w xeuugli x13faqbe x1vvkbs xlh3980 xvmahel x1n0sxbx x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x4zkp8e x3x7a5m x6prxxf xvq8zen x1s688f xi81zsa')[0];
+ console.log(span_click_option_view_cmt.click());
+
+ console.log(span_click_option_view_cmt);
+
+
+var menu_opt_choice_all = document.getElementsByClassName('x193iq5w xeuugli x13faqbe x1vvkbs xlh3980 xvmahel x1n0sxbx x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x4zkp8e x3x7a5m x6prxxf xvq8zen xk50ysn xzsf02u x1yc453h');
+console.log('menu_opt_choice_all, ', menu_opt_choice_all);
+
+// there are 3 index: [0: the most relevant comment, 1: newest comment, 2: all comments]
+
+//var menu_opts_cmt_choice = document.getElementsByClassName('x1n2onr6 xcxhlts')[0];
+//console.log('menu_opts_cmt_choice, ', menu_opts_cmt_choice);
+ //var opts = menu_opts_cmt_choice.getElementsByClassName('x193iq5w xeuugli x13faqbe x1vvkbs xlh3980 xvmahel x1n0sxbx x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x4zkp8e x3x7a5m x6prxxf xvq8zen xk50ysn xzsf02u x1yc453h')
+ //console.log(opts[2].click())
+
+
+// click for see all of the comment
 var click_able = post_comments_only.getElementsByClassName('x78zum5 x13a6bvl xexx8yu x1pi30zi x18d9i69 x1swvt13 x1n2onr6')[1];
 var span_click = click_able.getElementsByClassName('x193iq5w xeuugli x13faqbe x1vvkbs xlh3980 xvmahel x1n0sxbx x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x4zkp8e x3x7a5m x6prxxf xvq8zen x1s688f xi81zsa')[0];
  console.log(span_click.click());
